@@ -11,6 +11,7 @@ public abstract class StateMachine : MonoBehaviour
         currentState?.Exit();
         currentState = newState;
         currentState?.Enter();
+
     }
 
     private void Update()
