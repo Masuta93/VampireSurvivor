@@ -19,10 +19,7 @@ public class EnemyStateMachine : StateMachine
     {
         enemyColor = GetComponentInChildren<Renderer>();
 
-        if (player != null)
-        {
-            damageToEnemy = GameObject.Find("----Player----").GetComponent<PlayerStateMachine>();
-        }
+        damageToEnemy = GameObject.Find("----Player----").GetComponent<PlayerStateMachine>();
 
         maxHealth = statistiquesEnemy.maxHealth;
         currentHealth = maxHealth;
@@ -40,6 +37,16 @@ public class EnemyStateMachine : StateMachine
         int damage = damageToEnemy.statistiquesPlayer.damages;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            dealDamageToPlayer(damage);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        int damage = damageToEnemy.statistiquesPlayer.damages;
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
             dealDamageToPlayer(damage);
         }
