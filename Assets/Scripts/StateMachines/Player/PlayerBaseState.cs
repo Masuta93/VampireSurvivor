@@ -10,9 +10,8 @@ public abstract class PlayerBaseState : State
     {
         this.stateMachine = stateMachine;
     }
-    protected void Move(Vector3 motion, float deltaTime)
+    protected void Move(Vector3 motion)
     {
-        stateMachine.characterController.Move((motion) * deltaTime);
+        stateMachine.rb.velocity = (motion);
     }
-
 }

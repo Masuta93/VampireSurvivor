@@ -6,7 +6,6 @@ public class BulletMovement : MonoBehaviour
 {
     #region Exposed
 
-    [SerializeField] float m_speed = 30f;
 
     #endregion
 
@@ -30,10 +29,7 @@ public class BulletMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
-        {
-            Destroy(gameObject);
-        }
+
     }
 
     #endregion

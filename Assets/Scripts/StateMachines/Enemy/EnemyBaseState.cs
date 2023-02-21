@@ -11,4 +11,11 @@ public abstract class EnemyBaseState : State
         this.stateMachine = stateMachine;
     }
 
+    protected void ChasePlayer(Vector3 player, float chaseSpeed, float deltaTime)
+    {
+        stateMachine.transform.LookAt(player);
+        stateMachine.transform.position += stateMachine.transform.forward * chaseSpeed * deltaTime;
+       // stateMachine.transform.Translate(player * chaseSpeed * deltaTime);
+    }
 }
+

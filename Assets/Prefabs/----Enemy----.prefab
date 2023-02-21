@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4565201322143158788}
   - component: {fileID: 4565201322143158789}
   - component: {fileID: 4565201322143158790}
-  - component: {fileID: 4565201322143158907}
-  m_Layer: 0
+  - component: {fileID: 354961728}
+  m_Layer: 8
   m_Name: ----Enemy----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565201322143158791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.11, y: 0.5, z: -7.5}
+  m_LocalPosition: {x: 15.11, y: 0, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -49,7 +49,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &4565201322143158790
 BoxCollider:
@@ -64,7 +64,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4565201322143158907
+--- !u!114 &354961728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,7 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cd9c972c313514ea73fa1b074bf094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  <chaseSpeed>k__BackingField: 5
+  <statistiquesEnemy>k__BackingField: {fileID: 11400000, guid: 2b39ff765ee3b764b866205ab2303ca6, type: 2}
+  <enemyColor>k__BackingField: {fileID: 4565201322848192608}
 --- !u!1 &4565201322848192610
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +90,7 @@ GameObject:
   - component: {fileID: 4565201322848192614}
   - component: {fileID: 4565201322848192615}
   - component: {fileID: 4565201322848192608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fbdbfafec96b015408eca42994c68768, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

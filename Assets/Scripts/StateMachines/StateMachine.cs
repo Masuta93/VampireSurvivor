@@ -18,4 +18,8 @@ public abstract class StateMachine : MonoBehaviour
     {
         currentState?.Tick(Time.deltaTime);
     }
+    private void FixedUpdate()
+    {
+        currentState?.PhysicsTick();
+    }
 }

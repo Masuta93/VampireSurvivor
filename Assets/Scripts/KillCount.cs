@@ -20,7 +20,5 @@ public class KillCount : MonoBehaviour
     {
         _value += 1;
         killValue.text = "" + _value;
-
     }
-
 }

@@ -17,9 +17,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        Vector3 movement = CalculateMovement();
 
-        Move(movement * stateMachine.movementSpeed, deltaTime);
 
         spawnTimer += deltaTime;
         lastAttack += deltaTime;
@@ -50,5 +48,12 @@ public class PlayerAttackingState : PlayerBaseState
         forward.Normalize();
         right.Normalize();
         return forward * stateMachine.InputReader.MovementValue.y + right * stateMachine.InputReader.MovementValue.x;
+    }
+
+    public override void PhysicsTick()
+    {
+        Vector3 movement = CalculateMovement();
+
+        Move(new Vector3(stateMachine.InputReader.MovementValue.x, 0, stateMachine.InputReader.MovementValue.y) * stateMachine.movementSpeed * 100);
     }
 }
