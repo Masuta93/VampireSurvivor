@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cd9c972c313514ea73fa1b074bf094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <chaseSpeed>k__BackingField: 5
+  <chaseSpeed>k__BackingField: 3
   <statistiquesEnemy>k__BackingField: {fileID: 11400000, guid: 28dbfcaa9e7dcba499b3456ef29bc3ba, type: 2}
   <prefab>k__BackingField: {fileID: 1574364385738328904, guid: 7310cbaea333c2e498f6f4f94158567c, type: 3}
 --- !u!1 &4565201322848192610
