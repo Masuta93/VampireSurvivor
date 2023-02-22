@@ -13,7 +13,9 @@ public class EnemyStateMachine : StateMachine
     [SerializeField] public PlayerStateMachine damageToEnemy { get; private set; }
     [SerializeField] public Renderer enemyColor { get; private set; }
 
-    [SerializeField] public RewardsManager rewardManager { get; private set; } 
+    [SerializeField] public RewardsManager rewardManager { get; private set; }
+    [field: SerializeField] public GameObject prefab { get; private set; }
+
 
     private int maxHealth;
     private int currentHealth;
@@ -56,10 +58,7 @@ public class EnemyStateMachine : StateMachine
         if (currentHealth <= 0)
         {
             SwitchState(new EnemyDeathState(this));
-            /*killCount.ScoreAdd();
-            Destroy(gameObject);
-            isDead = true;
-            rewardManager.afterDeath.Invoke(); */
+
         }
         SwitchState(new EnemyHitState(this));
     }
@@ -68,6 +67,20 @@ public class EnemyStateMachine : StateMachine
     {
         killCount.ScoreAdd();
         Destroy(gameObject);
+        rewardManager.enemyDeathPos = transform.position;
         rewardManager.afterDeath.Invoke();
+    }
+    public void Explosion(Vector3 pos)
+    {
+
+        Vector3 direction = Vector3.zero;
+        int rand = Random.Range(0, 4);
+        if (rand == 0) direction = transform.forward;
+        else if (rand == 1) direction = -transform.forward;
+        else if (rand == 2) direction = -transform.right;
+        else if (rand == 3) direction = transform.right;
+        GameObject projectiles = Instantiate(prefab, pos, Quaternion.identity);
+        Rigidbody rb = projectiles.GetComponent<Rigidbody>();
+        rb.AddForce(direction * 5, ForceMode.VelocityChange);
     }
 }

@@ -7,6 +7,7 @@ public class EnemyDeathState : EnemyBaseState
 {
     public EnemyDeathState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
+
     public override void Enter()
     {
         stateMachine.Death();
@@ -24,4 +25,5 @@ public class EnemyDeathState : EnemyBaseState
     public override void PhysicsTick()
     {
     }
+
 }

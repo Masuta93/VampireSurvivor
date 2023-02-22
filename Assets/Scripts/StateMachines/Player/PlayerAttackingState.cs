@@ -18,15 +18,16 @@ public class PlayerAttackingState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
 
-
         spawnTimer += deltaTime;
         lastAttack += deltaTime;
 
         if (spawnTimer >= stateMachine.bulletSpawnRate)
         {
             stateMachine.Attack();
+            stateMachine.rewardManager.multipleShot.Invoke();
             spawnTimer = 0f;
         }
+
         if (lastAttack >= stateMachine.bulletSpawnRate + stateMachine.waitingTransition)
         {
             lastAttack = 0f;

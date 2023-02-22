@@ -20,6 +20,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float bulletSpeed { get; private set; }
     [field: SerializeField] public Material playerColor { get; private set; }
     [field: SerializeField] public Statistiques statistiquesPlayer { get; private set; }
+    [field: SerializeField] public RewardsManager rewardManager { get; private set; }
 
 
     private int maxHealth;
@@ -27,6 +28,7 @@ public class PlayerStateMachine : StateMachine
 
     private void Awake()
     {
+        rewardManager = GameObject.Find("Rewards").GetComponent<RewardsManager>();
         rb = GetComponent<Rigidbody>();
         maxHealth = statistiquesPlayer.maxHealth;
         currentHealth = maxHealth;

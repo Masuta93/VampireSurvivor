@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565201322143158791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.11, y: 0, z: -7.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <chaseSpeed>k__BackingField: 5
   <statistiquesEnemy>k__BackingField: {fileID: 11400000, guid: 28dbfcaa9e7dcba499b3456ef29bc3ba, type: 2}
+  <prefab>k__BackingField: {fileID: 1574364385738328904, guid: 7310cbaea333c2e498f6f4f94158567c, type: 3}
 --- !u!1 &4565201322848192610
 GameObject:
   m_ObjectHideFlags: 0

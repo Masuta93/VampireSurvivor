@@ -10,22 +10,22 @@ public class RewardsManager : MonoBehaviour
     [SerializeField] private GameObject rewards;
     [SerializeField] private int palierReward = 10;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject player;
+    public Vector3 enemyDeathPos;
 
     public UnityEvent afterDeath;
     public UnityEvent multipleShot;
     private bool pause;
     private int countValue;
+
     private void Awake()
     {
         countValue = killCount._value;
     }
-    // Start is called before the first frame update
     void Start()
     {
-        Button1();
     }
 
-    // Update is called once per frame
     void Update()
     {
         countValue = killCount._value;
@@ -34,7 +34,7 @@ public class RewardsManager : MonoBehaviour
             Pause();
             rewards.SetActive(true);
         }
-        else if (countValue == palierReward+1)
+        else if (countValue == palierReward + 1)
         {
             pause = false;
         }
@@ -44,35 +44,45 @@ public class RewardsManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pause = true;
-        Debug.Log("pause");
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
-        Debug.Log("resume");
         rewards.SetActive(false);
     }
 
     public void Button1()
     {
         afterDeath.AddListener(randomShotFromDeadEnemy);
+        Resume();
+    }
+    public void Button2()
+    {
+        multipleShot.AddListener(SecondShot);
+        Resume();
     }
     public void randomShotFromDeadEnemy()
     {
-        Vector3 enemyPos = enemy.transform.position;
+        enemy.GetComponent<EnemyStateMachine>().Explosion(enemyDeathPos);
 
-        Vector3 direction = Vector3.zero;
-        int rand = Random.Range(0, 3);
-        if (rand == 0) direction = transform.forward;
-        else if (rand == 1) direction = -transform.forward;
-        else if (rand == 2) direction = -transform.right;
-        else if (rand == 3) direction = transform.right;
+    }
 
-        // Instancier le projectile et lui ajouter une force dans la direction calculée
-        GameObject projectiles = Instantiate(projectile, new Vector3(transform.position.x, 1, transform.position.z), transform.rotation);
-        Rigidbody rb = projectiles.GetComponent<Rigidbody>();
-        rb.AddForce(direction * 5, ForceMode.VelocityChange);
-     //   Instantiate(projectiles, transform.position, Quaternion.identity);
+    public void SecondShot()
+    {
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            return;
+        }
+        else if (rand == 1)
+        {
+            StartCoroutine(DelayedSecondShot(0.2f));
+        }
+    }
+    private IEnumerator DelayedSecondShot(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.GetComponent<PlayerStateMachine>().Attack();
     }
 }
