@@ -77,8 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <chaseSpeed>k__BackingField: 5
-  <statistiquesEnemy>k__BackingField: {fileID: 11400000, guid: 2b39ff765ee3b764b866205ab2303ca6, type: 2}
-  <enemyColor>k__BackingField: {fileID: 4565201322848192608}
+  <statistiquesEnemy>k__BackingField: {fileID: 11400000, guid: 28dbfcaa9e7dcba499b3456ef29bc3ba, type: 2}
 --- !u!1 &4565201322848192610
 GameObject:
   m_ObjectHideFlags: 0

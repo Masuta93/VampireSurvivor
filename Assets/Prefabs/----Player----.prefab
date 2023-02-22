@@ -197,7 +197,7 @@ MonoBehaviour:
   <waitingStateDuration>k__BackingField: 0.4
   <bulletSpeed>k__BackingField: 10
   <playerColor>k__BackingField: {fileID: 2100000, guid: 5b262e133cad4714c8bf84f954888647, type: 2}
-  <statistiquesPlayer>k__BackingField: {fileID: 11400000, guid: 6dffd3b7f80ed8045a0b734e3022adbb, type: 2}
+  <statistiquesPlayer>k__BackingField: {fileID: 11400000, guid: 29b8a40b9665a95469fcf3be1a4eaaf0, type: 2}
 --- !u!114 &3110708000314414518
 MonoBehaviour:
   m_ObjectHideFlags: 0

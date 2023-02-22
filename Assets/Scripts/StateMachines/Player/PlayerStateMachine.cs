@@ -19,7 +19,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float waitingStateDuration { get; private set; }
     [field: SerializeField] public float bulletSpeed { get; private set; }
     [field: SerializeField] public Material playerColor { get; private set; }
-    [field: SerializeField] public IntVariable statistiquesPlayer { get; private set; }
+    [field: SerializeField] public Statistiques statistiquesPlayer { get; private set; }
 
 
     private int maxHealth;
@@ -56,7 +56,6 @@ public class PlayerStateMachine : StateMachine
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("blabla");
         int damage = collision.gameObject.GetComponent<EnemyStateMachine>().statistiquesEnemy.damages;
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
