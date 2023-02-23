@@ -65,7 +65,6 @@ public class RewardsManager : MonoBehaviour
     public void randomShotFromDeadEnemy()
     {
         enemy.GetComponent<EnemyStateMachine>().Explosion(enemyDeathPos);
-
     }
 
     public void SecondShot()

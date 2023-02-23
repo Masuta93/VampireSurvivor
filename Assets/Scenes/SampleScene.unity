@@ -515,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 1165034264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.4471, y: 4.4471, z: 4.4471}
+  m_LocalScale: {x: 4.1691117, y: 4.4471, z: 2.3340607}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -729,12 +729,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1165034268}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
+      propertyPath: spawnTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: simpleEnemy
       value: 
       objectReference: {fileID: 4565201322143158791, guid: a91c56a4918a7d04b9bb355a4264f411, type: 3}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
+      propertyPath: spawnArea.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
+      propertyPath: spawnArea.z
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: spawnRadius
-      value: 55
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: spawnRateCurve.m_Curve.Array.size
@@ -789,6 +801,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 367033655}
+    - target: {fileID: 351446213, guid: 81cf5bf705c8f5f419087ffcf406f691, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 361941059, guid: 81cf5bf705c8f5f419087ffcf406f691, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
