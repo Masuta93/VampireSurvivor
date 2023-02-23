@@ -22,9 +22,10 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Statistiques statistiquesPlayer { get; private set; }
     [field: SerializeField] public RewardsManager rewardManager { get; private set; }
 
+    [field: SerializeField] public HealthBar healthBar { get; private set; }
 
-    private int maxHealth;
-    private int currentHealth;
+    public int maxHealth { get; private set; }
+    public int currentHealth { get; private set; }
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class PlayerStateMachine : StateMachine
         rb = GetComponent<Rigidbody>();
         maxHealth = statistiquesPlayer.maxHealth;
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
     private void Start()
     {
@@ -63,16 +65,18 @@ public class PlayerStateMachine : StateMachine
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
         {
             dealDamage(damage);
+            healthBar.SetHealth(currentHealth);
         }
     }
 
     public void dealDamage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0) { currentHealth= 0; }
-        if (currentHealth <= 0)
-        {
+        if (currentHealth <= 0) 
+        { 
+            currentHealth= 0; 
             Destroy(gameObject);
         }
+
     }
 }

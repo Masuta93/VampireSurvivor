@@ -16,10 +16,12 @@ public class RewardsManager : MonoBehaviour
     public UnityEvent afterDeath;
     public UnityEvent multipleShot;
     private bool pause;
+    public bool spawnPause { get; private set; }
     private int countValue;
 
     private void Awake()
     {
+        spawnPause = false;
         countValue = killCount._value;
     }
     void Start()
@@ -31,6 +33,7 @@ public class RewardsManager : MonoBehaviour
         countValue = killCount._value;
         if (countValue == palierReward && pause == false)
         {
+            palierReward += palierReward;
             Pause();
             rewards.SetActive(true);
         }
@@ -44,12 +47,14 @@ public class RewardsManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pause = true;
+        spawnPause = true;
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
         rewards.SetActive(false);
+        spawnPause = false;
     }
 
     public void Button1()

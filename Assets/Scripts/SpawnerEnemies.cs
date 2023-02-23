@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,11 +9,10 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] Transform groundSize;
     [SerializeField] GameObject simpleEnemy;
     [SerializeField] float spawnTimer;
-    [SerializeField] private float spawnRadius = 10.0f;
-    [SerializeField] private float spawnInterval = 2.0f;
     [SerializeField] private Vector3 spawnArea;
+    [SerializeField] RewardsManager pause;
     public AnimationCurve spawnRateCurve;
-    private Camera mainCamera;
+    [SerializeField] private Camera mainCamera;
     float timer;
 
     private void Awake()
@@ -21,18 +21,23 @@ public class SpawnerEnemies : MonoBehaviour
     }
     void Start()
     {
-        spawnRateCurve = new AnimationCurve();
-        // StartCoroutine(spawnEnemy(spawnTimer, simpleEnemy));
     }
 
     void Update()
     {
-        // spawnTimer = spawnRateCurve.Evaluate(Time.time);
-        timer -= Time.deltaTime;
-        if (timer < 0)
+        if (!pause.spawnPause)
         {
-            SpawnEnemy();
-            timer = spawnTimer;
+            spawnTimer *= spawnRateCurve.Evaluate(Time.time);
+            if (spawnTimer <= 0.1f)
+            {
+                spawnTimer = 0.1f;
+            }
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                SpawnEnemy();
+                timer = spawnTimer;
+            }
         }
     }
 
@@ -48,35 +53,45 @@ public class SpawnerEnemies : MonoBehaviour
     {
         Vector3 position = new Vector3();
 
-        float f = UnityEngine.Random.value > 0.5f ? -1f : 1f;
-        if (UnityEngine.Random.value > 0.5f)
+        float f = UnityEngine.Random.Range(0, 4);
+        float cameraZ = Camera.main.transform.position.z;
+        float cameraX = Camera.main.transform.position.x;
+        switch (f)
         {
-            position.x = UnityEngine.Random.Range(-spawnArea.x, spawnArea.x);
-            position.z = spawnArea.z * f;
-        }
-        else
-        {
-            position.z = UnityEngine.Random.Range(-spawnArea.z, spawnArea.z);
-            position.x = spawnArea.x * f;
+            case 0:
+                {
+                    // gauche
+                    position.x = UnityEngine.Random.Range((-spawnArea.x - 5 + cameraX), -spawnArea.x + cameraX);
+                    position.z =  UnityEngine.Random.Range((-spawnArea.z - 3 + cameraZ), spawnArea.z + 3 + cameraZ);
+                    break;
+                }
+            case 1:
+                {
+                    // droite 
+                   position.x = UnityEngine.Random.Range((spawnArea.x + 5 + cameraX), spawnArea.x + cameraX);
+                   position.z = UnityEngine.Random.Range((-spawnArea.z - 3 + cameraZ), spawnArea.z + 3 + cameraZ);
+                    break;
+                }
+            case 2:
+                {
+                    // haut
+                    position.x = UnityEngine.Random.Range((-spawnArea.x - cameraX), spawnArea.x + cameraX);
+                    position.z = UnityEngine.Random.Range((spawnArea.z + 3 + cameraZ), spawnArea.z + cameraZ);
+                    break;
+                }
+            case 3:
+                {
+                    // bas
+                    position.x = UnityEngine.Random.Range((-spawnArea.x + cameraX), spawnArea.x + cameraX);
+                    position.z = UnityEngine.Random.Range((-spawnArea.z - 3 + cameraZ), -spawnArea.z + cameraZ);
+                    break;
+                }
         }
 
-        position.y = 0;
+
+        position.y = 1;
 
         return position;
     }
-
-    /* private IEnumerator spawnEnemy(float timer, GameObject enemy)
-      {
-          while (true)
-          {
-              Vector3 randomPos = mainCamera.transform.position + UnityEngine.Random.insideUnitSphere * spawnRadius;
-              randomPos.y = 0;
-
-              Instantiate(simpleEnemy, randomPos, Quaternion.identity);
-              yield return new WaitForSeconds(spawnInterval);
-          }
-      }
-    */
-
 }
 
