@@ -47,7 +47,7 @@ MonoBehaviour:
   projectile: {fileID: 1574364385738328904, guid: 7310cbaea333c2e498f6f4f94158567c, type: 3}
   killCount: {fileID: 0}
   rewards: {fileID: 0}
-  palierReward: 20
+  palierReward: 1
   enemy: {fileID: 4565201322143158791, guid: a91c56a4918a7d04b9bb355a4264f411, type: 3}
   player: {fileID: 0}
   enemyDeathPos: {x: 0, y: 0, z: 0}

@@ -1145,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: spawnTimer
-      value: 0.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: simpleEnemy
@@ -1173,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: spawnRateCurve.m_Curve.Array.data[1].time
-      value: 2000000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
       propertyPath: spawnRateCurve.m_Curve.Array.data[0].value

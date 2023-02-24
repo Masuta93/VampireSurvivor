@@ -46,4 +46,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundSize: {fileID: 0}
   simpleEnemy: {fileID: 4565201322143158791, guid: a91c56a4918a7d04b9bb355a4264f411, type: 3}
-  spawnTimer: 1
+  spawnTimer: 3
+  spawnArea: {x: 20, y: 0, z: 14}
+  pause: {fileID: 0}
+  spawnRateCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.000000975098
+      outSlope: -0.000000975098
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.079879716
+    - serializedVersion: 3
+      time: 100
+      value: 0.25
+      inSlope: -0.0000006520005
+      outSlope: -0.0000006520005
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0886481
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  mainCamera: {fileID: 0}
