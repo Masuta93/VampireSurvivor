@@ -10,6 +10,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public event Action JumpEvent;
     public event Action DodgeEvent;
+    public event Action EscapeEvent;
 
     private Controls controls;
 
@@ -44,4 +45,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         MovementValue = context.ReadValue<Vector2>();
     }
+
+   /* public void OnEscape(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        EscapeEvent?.Invoke();
+    }*/
 }

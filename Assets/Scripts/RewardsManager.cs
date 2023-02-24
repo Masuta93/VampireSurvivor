@@ -43,7 +43,7 @@ public class RewardsManager : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
         Time.timeScale = 0;
         pause = true;

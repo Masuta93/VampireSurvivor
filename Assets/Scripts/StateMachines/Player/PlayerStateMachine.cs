@@ -24,11 +24,14 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField] public HealthBar healthBar { get; private set; }
 
+    [field: SerializeField] public GameObject retryText { get; private set; }
+
     public int maxHealth { get; private set; }
     public int currentHealth { get; private set; }
 
     private void Awake()
     {
+        retryText.SetActive(false);
         rewardManager = GameObject.Find("Rewards").GetComponent<RewardsManager>();
         rb = GetComponent<Rigidbody>();
         maxHealth = statistiquesPlayer.maxHealth;
@@ -74,9 +77,13 @@ public class PlayerStateMachine : StateMachine
         currentHealth -= damage;
         if (currentHealth <= 0) 
         { 
-            currentHealth= 0; 
-            Destroy(gameObject);
+            currentHealth= 0;
+            SwitchState(new PlayerDeathState(this));
         }
+    }
 
+    public void removeGameObject()
+    {
+        Destroy(gameObject);
     }
 }

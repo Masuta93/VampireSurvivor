@@ -12,12 +12,12 @@ public class SpawnerEnemies : MonoBehaviour
     [SerializeField] private Vector3 spawnArea;
     [SerializeField] RewardsManager pause;
     public AnimationCurve spawnRateCurve;
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private CinemachineVirtualCamera mainCamera;
     float timer;
 
     private void Awake()
     {
-        mainCamera = Camera.main;
+       // mainCamera = Camera.main;
     }
     void Start()
     {
@@ -53,9 +53,9 @@ public class SpawnerEnemies : MonoBehaviour
     {
         Vector3 position = new Vector3();
 
-        float f = UnityEngine.Random.Range(0, 4);
-        float cameraZ = Camera.main.transform.position.z;
-        float cameraX = Camera.main.transform.position.x;
+        float f = UnityEngine.Random.Range(0,4);
+        float cameraZ = mainCamera.transform.position.z;
+        float cameraX = mainCamera.transform.position.x;
         switch (f)
         {
             case 0:
@@ -75,7 +75,7 @@ public class SpawnerEnemies : MonoBehaviour
             case 2:
                 {
                     // haut
-                    position.x = UnityEngine.Random.Range((-spawnArea.x - cameraX), spawnArea.x + cameraX);
+                    position.x = UnityEngine.Random.Range((-spawnArea.x + cameraX), spawnArea.x + cameraX);
                     position.z = UnityEngine.Random.Range((spawnArea.z + 3 + cameraZ), spawnArea.z + cameraZ);
                     break;
                 }
