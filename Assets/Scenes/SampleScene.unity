@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3209732042660668965, guid: 0a9d118576d4bbd42a6a2ac2643bbc7b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 148.7
+      value: 142.96
       objectReference: {fileID: 0}
     - target: {fileID: 3209732042660668965, guid: 0a9d118576d4bbd42a6a2ac2643bbc7b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -493,6 +493,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f248d016e82579e40983d8e9da603a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimer: {fileID: 711593803}
+--- !u!114 &711593803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3696603465881130735, guid: e3df6e743a1b3eb49a868174cc4c5f37, type: 3}
+  m_PrefabInstance: {fileID: 3696603465120668175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398fe0ccfc37f104486683fa39006c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &855931286
@@ -1025,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 1249261964}
     - target: {fileID: 2233871585184458859, guid: 9a2e7df1d88409843add91f10e7f2b55, type: 3}
       propertyPath: palierReward
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a2e7df1d88409843add91f10e7f2b55, type: 3}
@@ -1050,7 +1062,7 @@ PrefabInstance:
       objectReference: {fileID: 1327805400}
     - target: {fileID: 3110708000314414517, guid: 9079707554c53094ba3dbe2bd839551f, type: 3}
       propertyPath: <movementSpeed>k__BackingField
-      value: 0.027
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 3110708000314414517, guid: 9079707554c53094ba3dbe2bd839551f, type: 3}
       propertyPath: <rewardManager>k__BackingField

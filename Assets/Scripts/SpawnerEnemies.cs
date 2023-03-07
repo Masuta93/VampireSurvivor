@@ -8,7 +8,7 @@ public class SpawnerEnemies : MonoBehaviour
 {
     [SerializeField] Transform groundSize;
     [SerializeField] GameObject simpleEnemy;
-    [SerializeField] float spawnTimer;
+    public float spawnTimer;
     [SerializeField] private Vector3 spawnArea;
     [SerializeField] RewardsManager pause;
     public AnimationCurve spawnRateCurve;

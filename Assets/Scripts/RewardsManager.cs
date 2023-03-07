@@ -33,7 +33,7 @@ public class RewardsManager : MonoBehaviour
         countValue = killCount._value;
         if (countValue == palierReward && pause == false)
         {
-            palierReward += palierReward;
+            Debug.Log(palierReward);
             Pause();
             rewards.SetActive(true);
         }

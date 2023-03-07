@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private SpawnerEnemies spawnTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         print("Scène rechargée");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        spawnTimer.spawnTimer = 0f;
     }
 
     public void QuitGame()
